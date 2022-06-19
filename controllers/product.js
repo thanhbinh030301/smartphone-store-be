@@ -66,9 +66,9 @@ export const addProduct = (req, res)=>{
         res.status(400).send({ message: "Content can not be empty"});
         return;
     }
-
     //new user
     const product = new ProductModel({
+        slug: req.body.name.replace(/\s/g, '-'),
         brand: req.body.brand,
         image: req.body.image,
         name: req.body.name,
